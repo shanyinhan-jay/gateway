@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PainlessMesh ETH Gateway</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>PainlessMesh ETH Gateway</h1>
+            <nav class="nav">
+                <a href="#devices" class="nav-link active" data-page="devices">Devices</a>
+                <a href="#status" class="nav-link" data-page="status">System Status</a>
+                <a href="#scenes" class="nav-link" data-page="scenes">Scenes</a>
+                <a href="#actions" class="nav-link" data-page="actions">Actions</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="app" class="container">
+        <!-- App content will be rendered here by JavaScript -->
+        <p>Loading...</p>
+    </main>
+
+<!-- ... (</main> 标签之后) ... -->
+
+    <!-- Configuration Modal -->
+    <div id="modal-container" class="modal-container">
+        <div class="modal-content">
+            <button class="modal-close-btn" id="modal-close-btn">&times;</button>
+            <h2 id="modal-title">Configure Device</h2>
+            <form id="config-form">
+                <input type="hidden" name="deviceName" id="config-deviceName">
+
+                <fieldset class="config-group">
+                    <legend>ON State</legend>
+                    <div class="form-row">
+                        <label for="on_color">Color:</label>
+                        <input type="color" id="on_color" name="on_color">
+                        <label for="brightness_on">Brightness:</label>
+                        <input type="range" id="brightness_on" name="brightness_on" min="0" max="255" value="80">
+                    </div>
+                </fieldset>
+
+                <fieldset class="config-group">
+                    <legend>OFF State</legend>
+                    <div class="form-row">
+                        <label for="off_color">Color:</label>
+                        <input type="color" id="off_color" name="off_color">
+                        <label for="brightness_off">Brightness:</label>
+                        <input type="range" id="brightness_off" name="brightness_off" min="0" max="255" value="10">
+                    </div>
+                </fieldset>
+
+                <fieldset class="config-group">
+                    <legend>Environment Sensor Link</legend>
+                    <div class="form-row">
+                        <label for="linked_sensor_name">Sensor:</label>
+                        <select id="linked_sensor_name" name="linked_sensor_name">
+                            <option value="">-- None --</option>
+                            <!-- Options will be added by JS -->
+                        </select>
+                    </div>
+                     <div class="form-row">
+                        <label for="daylight_threshold">Daylight Threshold (lx):</label>
+                        <input type="number" id="daylight_threshold" name="daylight_threshold" min="0">
+                    </div>
+                </fieldset>
+                
+                <button type="submit" class="btn btn-submit">Save Configuration</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+
+    
+</body>
+</html>
